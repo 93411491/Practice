@@ -16,7 +16,15 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 
-    <com.example.practice.CircleAvatarView
+<!--    <com.example.practice.CircleAvatarView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+<!--    <com.example.practice.CircleProgressView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
+
+    <com.example.practice.MultiLinePictureTextView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
