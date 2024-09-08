@@ -4,10 +4,13 @@ import android.util.TypedValue
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import com.example.practice.R
 
 // 扩展函数文件：DimensionExtensions.kt
 
@@ -77,4 +80,14 @@ fun View.toColor(colorResId: Int): Int {
 
 fun Context.toColor(colorResId: Int): Int {
     return ContextCompat.getColor(this, colorResId)
+}
+
+fun Context.bitmap(resId: Int, width: Int, height: Int? = width): Bitmap {
+    val option = BitmapFactory.Options()
+    option.inJustDecodeBounds = true
+    BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian, option)
+    option.inJustDecodeBounds = false
+    option.inDensity = option.outWidth
+    option.inTargetDensity = width
+    return BitmapFactory.decodeResource(resources, R.drawable.avatar_rengwuxian, option)
 }
