@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".motionlayout.MotionLayoutWzrActivity" />
+        <activity android:name=".motionlayout.MotionLayoutKeyPostionDemoActivity" />
+        <activity android:name=".motionlayout.MotionLayoutYouTuBeActivity" />
     </application>
 
 </manifest>

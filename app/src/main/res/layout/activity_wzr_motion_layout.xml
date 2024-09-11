@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:layoutDescription="@xml/activity_wzr_motion_layout_scene"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:motionDebug="SHOW_ALL">
+
+    <TextView
+        android:id="@+id/www"
+        style="@style/CustomTextStyle"
+        android:text="WWW" />
+
+    <TextView
+        android:id="@+id/zzz"
+        style="@style/CustomTextStyle"
+        android:text="ZZZ" />
+
+    <TextView
+        android:id="@+id/rrr"
+        style="@style/CustomTextStyle"
+        android:text="RRR" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

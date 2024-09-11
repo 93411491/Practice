@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@+id/avatar" >
+            <Layout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/avatar_rengwuxian"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint android:id="@+id/avatar" >
+            <Layout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/avatar_rengwuxian"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </Constraint>
+
+    </ConstraintSet>
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@+id/start"
+        app:duration="1500">
+
+<!--        <OnSwipe-->
+<!--            app:dragDirection="dragDown"-->
+<!--            app:autoCompleteMode="continuousVelocity"-->
+<!--            app:touchAnchorId="@id/avatar"/>-->
+
+        <OnClick
+            app:targetId="@id/avatar" />
+
+        <KeyFrameSet>
+            <KeyPosition
+                app:keyPositionType="parentRelative"
+                app:motionTarget="@id/avatar"
+                app:percentX="0.2"
+                app:percentY="0.7"
+                app:framePosition="20" />
+
+            <KeyPosition
+                app:keyPositionType="parentRelative"
+                app:framePosition="70"
+                app:percentX="0.6"
+                app:percentY="0.8"
+                app:motionTarget="@id/avatar" />
+        </KeyFrameSet>
+
+    </Transition>
+</MotionScene>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_youtube_motion_layout_scene">
+
+    <View
+        android:id="@+id/imageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/yellow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageIv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/film_cover"
+        app:layout_constraintTop_toTopOf="@id/imageContainer"
+        app:layout_constraintBottom_toBottomOf="@+id/imageContainer"
+        app:layout_constraintStart_toStartOf="@+id/imageContainer"
+        app:layout_constraintEnd_toEndOf="@+id/imageContainer" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/playIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_play_arrow_gray_32dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/imageContainer"
+        app:layout_constraintBottom_toBottomOf="@+id/imageContainer"
+        app:layout_constraintEnd_toEndOf="@+id/imageContainer" />
+
+    <ScrollView
+        android:id="@+id/textContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageIv"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/describe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/large_text" />
+    </ScrollView>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
