@@ -6,30 +6,30 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".draw.MainActivity">
 
-<!--    <com.example.practice.DashboardView-->
+<!--    <com.example.practice.draw.DashboardView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 
-<!--    <com.example.practice.PieView-->
+<!--    <com.example.practice.draw.PieView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 
-<!--    <com.example.practice.CircleAvatarView-->
+<!--    <com.example.practice.draw.CircleAvatarView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 
-<!--    <com.example.practice.CircleProgressView-->
+<!--    <com.example.practice.draw.CircleProgressView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 
-<!--    <com.example.practice.MultiLinePictureTextView-->
+<!--    <com.example.practice.draw.MultiLinePictureTextView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="match_parent" />-->
 <!---->
 
-<!--    <com.example.practice.TagWithTextView-->
+<!--    <com.example.practice.draw.TagWithTextView-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content" />-->
 

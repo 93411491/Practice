@@ -1,4 +1,4 @@
-package com.example.practice
+package com.example.practice.draw
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import com.example.practice.R
 import com.example.practice.ext.bitmap
 import com.example.practice.ext.color
 import com.example.practice.ext.toDp

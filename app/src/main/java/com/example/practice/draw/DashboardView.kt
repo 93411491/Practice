@@ -1,4 +1,4 @@
-package com.example.practice
+package com.example.practice.draw
 
 import android.content.Context
 import android.graphics.Canvas

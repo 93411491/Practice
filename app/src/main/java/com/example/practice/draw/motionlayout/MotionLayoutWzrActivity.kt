@@ -1,4 +1,4 @@
-package com.example.practice.motionlayout
+package com.example.practice.draw.motionlayout
 
 import android.os.Bundle
 import android.os.PersistableBundle

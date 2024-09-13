@@ -1,14 +1,14 @@
-package com.example.practice
+package com.example.practice.draw
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.practice.motionlayout.MotionLayoutKeyPostionDemoActivity
-import com.example.practice.motionlayout.MotionLayoutWzrActivity
-import com.example.practice.motionlayout.MotionLayoutYouTuBeActivity
+import com.example.practice.R
+import com.example.practice.draw.motionlayout.MotionLayoutKeyPostionDemoActivity
+import com.example.practice.draw.motionlayout.MotionLayoutWzrActivity
+import com.example.practice.draw.motionlayout.MotionLayoutYouTuBeActivity
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

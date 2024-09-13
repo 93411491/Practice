@@ -1,10 +1,10 @@
-package com.example.practice
+package com.example.practice.draw
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.setPadding
+import com.example.practice.R
 import com.example.practice.ext.toDp
 
 class TagWithTextView @JvmOverloads constructor(
@@ -14,7 +14,7 @@ class TagWithTextView @JvmOverloads constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     init {
-        inflate(context,R.layout.tag_with_text_constraint_layout,this)
+        inflate(context, R.layout.tag_with_text_constraint_layout,this)
         setPadding(10.toDp().toInt())
     }
 }
