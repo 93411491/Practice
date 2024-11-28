@@ -6,6 +6,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import com.example.practice.ext.logE
 import com.example.practice.ext.logI
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -76,14 +78,24 @@ class NetworkManager {
     suspend inline fun  <T : BaseRequest, reified R : BaseResponse> post(url: String, body: T): State<R> {
         return safeApiCall {
             val response = apiService.post(url, body)
-            val result = response.body() as? R ?: throw IllegalStateException("Response body is null")
-
-            if (result.isSuccess()) {
-                result
+            if (response.isSuccessful) {
+                val body = response.body() ?: throw IllegalStateException("Response body is null")
+                val result = parseResponseBody<R>(body)
+                if (result.isSuccess()) {
+                    result
+                } else {
+                    throw IOException(result.getFailedReason())
+                }
             } else {
-                throw IOException(result.getFailedReason())
+                throw IOException(response.errorBody()?.toString())
             }
         }
+    }
+
+     inline fun <reified T : BaseResponse> parseResponseBody(responseBody: ResponseBody): T {
+         val gson = Gson()
+         val type = object : TypeToken<T>() {}.type
+         return gson.fromJson(responseBody.charStream(), type)
     }
 
     @PublishedApi
