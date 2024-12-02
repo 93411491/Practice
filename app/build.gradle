@@ -18,12 +18,26 @@ android {
     }
 
     buildTypes {
-        debug {
-
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        //免费版本
+        free {
+            applicationId "com.example.pratice.free"
+            versionNameSuffix "-free"
+            dimension "version"
+        }
+        //专业版本
+        pro {
+            applicationId "com.example.pratice.pro"
+            versionNameSuffix "-pro"
+            dimension "version"
         }
     }
     compileOptions {
