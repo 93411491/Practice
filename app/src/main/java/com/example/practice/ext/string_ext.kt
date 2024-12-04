@@ -3,7 +3,7 @@ package com.example.practice.ext
 import android.util.Log
 
 fun String.logd(tag: String) {
-    Log.d(tag, "logd: ")
+    Log.d(tag, this)
 }
 
 fun String.logI(tag: String){

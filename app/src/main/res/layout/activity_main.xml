@@ -33,7 +33,7 @@
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content" />-->
 
-    <TextView
+<!--    <TextView
         android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,4 +56,46 @@
         android:text="YoutubeActivity"
         android:padding="10dp"
         android:textSize="25sp" />
+    -->
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始记录"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="停止记录"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/text6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打印日志"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/text7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="清除"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="展示日志"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
 </LinearLayout>
