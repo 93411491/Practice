@@ -1,6 +1,5 @@
 package com.example.practice
 
-import android.app.Application
 import android.content.Context
 import com.example.practice.ext.logE
 import com.example.practice.ext.logI
@@ -24,13 +23,16 @@ import java.util.Date
 import java.util.Locale
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicLong
-import kotlin.math.log
 
 
 private const val TAG = "LogcatUtil"
 
 /**
  *  adb logcat 日志工具类，
+ *  startLogcat :启动 adb logcat 输出日志到本地文件
+ *  stopLogcat ： 停止读取日志，并释放资源
+ *  getLogcatLogs ： 获取日志文件中的内容
+ *  deleteLogFile ： 删除旧的本地日志文件
  */
 object LogcatUtil {
 
@@ -62,7 +64,6 @@ object LogcatUtil {
     fun init(context: Context) {
         this.applicationContext = context.applicationContext
     }
-
 
     //写入一行日志到文件
     @Synchronized
@@ -107,27 +108,10 @@ object LogcatUtil {
 
         return try {
             cleanOldLogContent()
-
-            //覆盖写入
-            logFileBufferWriter = BufferedWriter(FileWriter(logFile, false))
-            currentFileSize.set(0L)
-
-            val currentPid = android.os.Process.myPid()
-
-            val command = if (!filter.isNullOrEmpty()) {
-                arrayOf("logcat", "-v", "time", "--pid=$currentPid", "-s", filter)
-            } else {
-                arrayOf("logcat", "-v", "time", "--pid=$currentPid")
-            }
-            "command = $command".logd(TAG)
-
-            logProcess = Runtime.getRuntime().exec(command)
-            //日志读取器
-            logReader = BufferedReader(InputStreamReader(logProcess?.inputStream))
-            isReading.set(true)
-
+            setUpAdbLogResource(filter)
             logJob = coroutineScope.launch {
                 try {
+                    isReading.set(true)
                     // 写入日志头部信息
                     val header = """
                         ===================================
@@ -142,7 +126,6 @@ object LogcatUtil {
                     """.trimIndent()
 
                     writeLine(header)
-                    "isActive && isReading.get() = ${isActive && isReading.get()}".logd(TAG)
                     while (isActive && isReading.get()) {
                         val line = logReader?.readLine()
 
@@ -168,6 +151,27 @@ object LogcatUtil {
         }
     }
 
+    private fun setUpAdbLogResource(filter: String?) {
+        //设置写入器，覆盖写入
+        logFileBufferWriter = BufferedWriter(FileWriter(logFile, false))
+        currentFileSize.set(0L)
+
+        //获取应用id
+        val currentPid = android.os.Process.myPid()
+
+        val command = if (!filter.isNullOrEmpty()) {
+            arrayOf("logcat", "-v", "time", "--pid=$currentPid", "-s", filter)
+        } else {
+            arrayOf("logcat", "-v", "time", "--pid=$currentPid")
+        }
+        "command = $command".logd(TAG)
+
+        logProcess = Runtime.getRuntime().exec(command)
+        //日志读取器
+        logReader = BufferedReader(InputStreamReader(logProcess?.inputStream))
+    }
+
+    //停止读取日志，并释放资源
     @Synchronized
     fun stopLogcat() {
         "尝试停止读取日志".logd(TAG)
@@ -204,6 +208,7 @@ object LogcatUtil {
         }
     }
 
+    //获取日志文件中的内容
     @Synchronized
     fun getLogcatLogs(): String {
         "尝试获取日志".logd(TAG)
@@ -227,7 +232,7 @@ object LogcatUtil {
     // 删除旧的日志内容
     @Synchronized
     private fun cleanOldLogContent() {
-        Runtime.getRuntime().exec("logcat -c").waitFor().also {
+        Runtime.getRuntime().exec(arrayOf("logcat", "-c")).waitFor().also {
             if (it == 0) {
                 "清除成功".logI(TAG)
             } else {
