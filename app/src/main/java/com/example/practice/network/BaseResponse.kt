@@ -1,11 +1,14 @@
-package com.example.practice.net
+package com.example.practice.network
 
-interface BaseRequest
+import com.google.gson.annotations.SerializedName
 
-abstract class BaseResponse {
-    var code: ResponseCode? = null
 
-    val message: String? = null
+open class BaseResponse{
+    @SerializedName("code")
+    var code: ResponseCode?= null
+
+    @SerializedName("msg")
+    val message: String? = ""
 
     fun isSuccess() = code == 0
 

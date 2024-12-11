@@ -1,39 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".draw.MainActivity">
 
-<!--    <com.example.practice.draw.DashboardView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-<!--    <com.example.practice.draw.PieView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
+        <EditText
+            android:id="@+id/standardEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:padding="12dp"
+            android:background="#FFFFFF"
+            android:hint="请输入文本"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textColorHint="#757575"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionDone"/>
 
-<!--    <com.example.practice.draw.CircleAvatarView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
 
-<!--    <com.example.practice.draw.CircleProgressView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
+        <TextView
+            android:id="@+id/long_click_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:padding="10dp"
+            android:text="长按测试"
+            android:textSize="20sp" />
 
-<!--    <com.example.practice.draw.MultiLinePictureTextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
-<!---->
 
-<!--    <com.example.practice.draw.TagWithTextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content" />-->
 
-<!--    <TextView
+        <!--        <TextView
+                    android:id="@+id/text4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="开始记录"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/text5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="停止记录"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/text6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="打印日志"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/text7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="清除"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:text="展示日志"
+                    android:textSize="25sp" />-->
+
+    </LinearLayout>
+
+    <!--    <com.example.practice.draw.DashboardView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <!--    <com.example.practice.draw.PieView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <!--    <com.example.practice.draw.CircleAvatarView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <!--    <com.example.practice.draw.CircleProgressView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+
+    <!--    <com.example.practice.draw.MultiLinePictureTextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" />-->
+    <!---->
+
+    <!--    <com.example.practice.draw.TagWithTextView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+    <!--    <TextView
         android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,45 +132,4 @@
         android:padding="10dp"
         android:textSize="25sp" />
     -->
-
-    <TextView
-        android:id="@+id/text4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="开始记录"
-        android:padding="10dp"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/text5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="停止记录"
-        android:padding="10dp"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/text6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="打印日志"
-        android:padding="10dp"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/text7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="清除"
-        android:padding="10dp"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="展示日志"
-        android:padding="10dp"
-        android:textSize="25sp" />
-
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>
