@@ -22,14 +22,12 @@ import java.util.concurrent.TimeUnit
 
 internal const val TAG = "NetworkManager"
 
-class NetworkManager {
+object NetworkManager {
 
     internal lateinit var applicationContext: Context
 
-    companion object {
-        private const val HTTP_PROTOCOL = "https://"
-        private const val BASE_URL = "base.url.com" //自定义的baseurl
-    }
+    private const val HTTP_PROTOCOL = "https://"
+    private lateinit var BASE_URL: String //自定义的baseurl
 
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
@@ -71,11 +69,15 @@ class NetworkManager {
 
     fun init(context: Context, baseUrl: String) {
         applicationContext = context
+        BASE_URL = baseUrl
     }
 
     fun isInitialized() = ::applicationContext.isInitialized
 
-    suspend inline fun  <T : BaseRequest, reified R : BaseResponse> post(url: String, body: T): State<R> {
+    suspend inline fun <T : BaseRequest, reified R : BaseResponse> post(
+        url: String,
+        body: T
+    ): State<R> {
         return safeApiCall {
             val response = apiService.post(url, body)
             if (response.isSuccessful) {
@@ -92,10 +94,10 @@ class NetworkManager {
         }
     }
 
-     inline fun <reified T : BaseResponse> parseResponseBody(responseBody: ResponseBody): T {
-         val gson = Gson()
-         val type = object : TypeToken<T>() {}.type
-         return gson.fromJson(responseBody.charStream(), type)
+    inline fun <reified T : BaseResponse> parseResponseBody(responseBody: ResponseBody): T {
+        val gson = Gson()
+        val type = object : TypeToken<T>() {}.type
+        return gson.fromJson(responseBody.charStream(), type)
     }
 
     @PublishedApi
