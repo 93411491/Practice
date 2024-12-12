@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
             "长按测试".logd("MainActivity")
             true
         }
+        findViewById<TextView>(R.id.long_click_text).setOnClickListener {
+            "长按测试".logd("MainActivity")
+        }
 //        findViewById<TextView>(R.id.text1).setOnClickListener {
 //            startActivity(Intent(this, MotionLayoutWzrActivity::class.java))
 //        }

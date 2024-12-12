@@ -8,6 +8,7 @@ import android.net.NetworkCapabilities
 import android.util.Log
 import com.bytedance.tools.codelocator.BuildConfig
 import com.example.practice.ext.logE
+import com.example.practice.ext.logI
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.Dispatchers
@@ -23,10 +24,6 @@ import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 
-enum class Host(val url: String) {
-    yue_wen("growth.yuewen.cn"),
-    li_pu("growth.lipuhome.com")
-}
 
 
 const val TAG = "GrowthSdk.NetworkManager"
@@ -35,6 +32,8 @@ object NetworkManager {
     private const val HTTP_PROTOCOL = "https://"
 
     private lateinit var applicationContext: Context
+
+    private const val DELAY_TIME = 1000L
 
     private lateinit var host: String
 
@@ -98,26 +97,23 @@ object NetworkManager {
     }
 
 
-    private suspend fun <T> safeApiCall(
-        retryCount: Int = 3,
-        retryDelayMillis: Long = 500,
-        apiCall: suspend () -> T,
-    ): State<T> {
+    @PublishedApi
+    internal suspend fun <T> safeApiCall(apiCall: suspend () -> T): State<T> {
         return withContext(Dispatchers.IO) {
-            repeat(retryCount) {
+            repeat(3) { retryIndex ->
                 try {
                     val result = apiCall()
                     return@withContext State.success(result)
                 } catch (e: Exception) {
                     if (e is IllegalArgumentException) {
-                        "参数异常，e:${e.message}".logE(TAG)
+                        "参数异常，异常详细信息为:  $e ".logE(TAG)
                         throw e
                     }
-                    "请求异常，e:${e.message}".logE(TAG)
-                    delay(retryDelayMillis)
+                    "请求异常: ${DELAY_TIME / 1000} s 后，重试请求 $retryIndex ,$e".logI(TAG)
+                    delay(DELAY_TIME)
                 }
             }
-            State.error(Exception("请求失败"))
+            State.error(Exception("something wrong"))
         }
     }
 

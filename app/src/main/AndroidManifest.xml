@@ -28,6 +28,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".draw.SecondActivity" />
+
         <activity android:name=".draw.motionlayout.MotionLayoutWzrActivity" />
         <activity android:name=".draw.motionlayout.MotionLayoutKeyPostionDemoActivity" />
         <activity android:name=".draw.motionlayout.MotionLayoutYouTuBeActivity" />

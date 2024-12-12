@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <EditText
             android:id="@+id/standardEditText"
             android:layout_width="match_parent"
@@ -38,6 +39,15 @@
             android:padding="10dp"
             android:text="长按测试"
             android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/scroll_content_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textSize="30sp"
+            android:text="滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动"
+            />
 
 
 
