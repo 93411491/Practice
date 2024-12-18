@@ -1,16 +1,10 @@
-package com.example.practice.draw
+package com.example.practice
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.practice.LogcatUtil
-import com.example.practice.R
-import com.example.practice.draw.motionlayout.MotionLayoutKeyPostionDemoActivity
-import com.example.practice.draw.motionlayout.MotionLayoutWzrActivity
-import com.example.practice.draw.motionlayout.MotionLayoutYouTuBeActivity
 import com.example.practice.ext.logd
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +12,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<TextView>(R.id.jump_tp_second_activity).setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+        }
+
 
         findViewById<TextView>(R.id.long_click_text).setOnLongClickListener {
             "长按测试".logd("MainActivity")

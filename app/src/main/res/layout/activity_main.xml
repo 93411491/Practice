@@ -6,13 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".draw.MainActivity">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/jump_tp_second_activity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:text="跳转到列表页"
+            android:textSize="20sp" />
 
 
         <EditText

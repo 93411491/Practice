@@ -19,7 +19,7 @@
         android:theme="@style/Theme.Practice"
         tools:targetApi="31">
         <activity
-            android:name=".draw.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".draw.SecondActivity" />
+        <activity android:name=".SecondActivity" />
 
         <activity android:name=".draw.motionlayout.MotionLayoutWzrActivity" />
         <activity android:name=".draw.motionlayout.MotionLayoutKeyPostionDemoActivity" />

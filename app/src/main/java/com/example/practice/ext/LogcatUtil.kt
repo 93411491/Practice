@@ -1,10 +1,6 @@
-package com.example.practice
+package com.example.practice.ext
 
 import android.content.Context
-import com.example.practice.ext.logE
-import com.example.practice.ext.logI
-import com.example.practice.ext.logW
-import com.example.practice.ext.logd
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -24,9 +20,6 @@ import java.util.Locale
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicLong
 
-
-private const val TAG = "LogcatUtil"
-
 /**
  *  adb logcat 日志工具类，
  *  startLogcat :启动 adb logcat 输出日志到本地文件
@@ -35,6 +28,8 @@ private const val TAG = "LogcatUtil"
  *  deleteLogFile ： 删除旧的本地日志文件
  */
 object LogcatUtil {
+
+    private const val TAG = "LogcatUtil"
 
     private const val LOG_FILE_NAME = "android_log_file.txt"
 
@@ -227,7 +222,8 @@ object LogcatUtil {
     /**
      * 创建保存日志的文件
      */
-    private fun createLogFile(): File = File(applicationContext.getExternalFilesDir(null), LOG_FILE_NAME)
+    private fun createLogFile(): File =
+        File(applicationContext.getExternalFilesDir(null), LOG_FILE_NAME)
 
     // 删除旧的日志内容
     @Synchronized
